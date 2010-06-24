@@ -1,1 +1,5 @@
-class Pixel; end
+class Pixel
+  def calculate
+    
+  end
+end
