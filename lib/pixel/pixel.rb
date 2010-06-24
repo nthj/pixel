@@ -1,6 +1,9 @@
 class Pixel
   def calculate dimensions = nil
-    [@number, @wide || ( @number.to_f / dimensions.first.to_f * dimensions.last.to_f).to_i ]
+    [
+      @high || ( @wide.to_f / dimensions.last.to_f * dimensions.first.to_f).to_i, 
+      @wide || ( @high.to_f / dimensions.first.to_f * dimensions.last.to_f).to_i
+    ]
   end
   
   def high
@@ -9,6 +12,11 @@ class Pixel
   end
   
   def initialize number
-    @number = @wide = number
+    @high = @wide = number
+  end
+  
+  def wide
+    @high = nil
+    self
   end
 end

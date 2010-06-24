@@ -16,4 +16,10 @@ describe Pixel do
       Pixel.new(50).high.calculate(original).should eql calculated
     end
   end
+  
+  it "should calculate the new height if we fix width" do
+    { [100, 200] => [25, 50], [82, 100] => [41, 50], [729, 65] => [560, 50] }.each do |original, calculated|
+      Pixel.new(50).wide.calculate(original).should eql calculated
+    end
+  end
 end
