@@ -1,8 +1,8 @@
 class Pixel
   def calculate dimensions = nil
     [
-      @high || ( @wide.to_f / dimensions.to_a.last.to_f * dimensions.to_a.first.to_f).to_i, 
-      @wide || ( @high.to_f / dimensions.to_a.first.to_f * dimensions.to_a.last.to_f).to_i
+      @high || ( @wide.to_f / ratio(dimensions) ).to_i, 
+      @wide || ( @high.to_f * ratio(dimensions) ).to_i
     ]
   end
   
@@ -19,4 +19,9 @@ class Pixel
     @high = nil
     freeze
   end
+  
+  protected
+    def ratio dimensions
+      dimensions.to_a.last.to_f / dimensions.to_a.first.to_f
+    end
 end
