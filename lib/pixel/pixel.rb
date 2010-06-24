@@ -8,7 +8,7 @@ class Pixel
   
   def high
     @wide = nil
-    self
+    freeze
   end
   
   def initialize number

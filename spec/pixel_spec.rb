@@ -11,9 +11,15 @@ describe Pixel do
     Pixel.new(50).calculate.should eql [50, 50]
   end
   
-  it "should calculate the new width if we fix height" do
-    { [100, 200] => [50, 100], [82, 620] => [50, 378], [729, 65] => [50, 4] }.each do |original, calculated|
-      Pixel.new(50).high.calculate(original).should eql calculated
+  context "height" do
+    it "should calculate the new width" do
+      { [100, 200] => [50, 100], [82, 620] => [50, 378], [729, 65] => [50, 4] }.each do |original, calculated|
+        Pixel.new(50).high.calculate(original).should eql calculated
+      end
+    end
+    
+    it "should freeze the object" do
+      lambda { Pixel.new(50).high.high }.should raise_error(TypeError)
     end
   end
   
