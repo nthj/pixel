@@ -17,6 +17,6 @@ class Pixel
   
   def wide
     @high = nil
-    self
+    freeze
   end
 end
