@@ -11,6 +11,12 @@ describe Pixel do
     Pixel.new(50).calculate.should eql [50, 50]
   end
   
+  it "should attempt to turn the original dimensions into an array" do
+    dimensions = mock('Array', :first => 50, :last => 50, :to_a => mock('Array', :first => 50, :last => 50))
+    dimensions.should_receive(:to_a).at_least :once
+    Pixel.new(50).high.calculate dimensions
+  end
+  
   context "height" do
     it "should calculate the new width" do
       { [100, 200] => [50, 100], [82, 620] => [50, 378], [729, 65] => [50, 4] }.each do |original, calculated|
