@@ -1,4 +1,6 @@
 class Integer
-  def pixels; end
+  def pixels
+    Pixel.new
+  end
   alias pixel pixels
 end

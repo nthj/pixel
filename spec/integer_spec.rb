@@ -1,5 +1,5 @@
 require 'rubygems' 
-require 'extensions'
+require 'pixel'
 gem 'rspec'
 
 describe Integer do
@@ -9,5 +9,9 @@ describe Integer do
   
   it "should have a pixel method" do
     1.should respond_to(:pixel)
+  end
+  
+  it "should return a pixel object" do
+    3.pixels.should be_a Pixel
   end
 end
