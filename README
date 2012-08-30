@@ -1,0 +1,13 @@
+Installation
+============
+
+Add to your Gemfile:
+    gem 'pixel'
+
+
+Usage
+=====
+
+   50.pixels.high.calculate([100, 200]) => [50, 100]
+
+   image_tag @image.url, size: 50.pixels.high.calculate(@image.dimensions).reverse.join('x')
